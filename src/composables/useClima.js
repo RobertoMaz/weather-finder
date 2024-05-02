@@ -8,8 +8,8 @@ export default function useClima(){
         try {
             const url = `http://api.openweathermap.org/geo/1.0/direct?q=${ciudad},${pais}&limit=1&appid=${key}`
             
-            const data = await axios(url)
-            console.log(data)
+            const {data} = await axios(url)
+            const {lat, long} = data[0]
         } catch (error) {
             console.log(error)
         }
