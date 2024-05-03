@@ -1,8 +1,11 @@
 <script setup>
   import WeatherForm from './components/WeatherForm.vue'
   import useClima from './composables/useClima'
+  import Clima from './components/Clima.vue'
+  import Spinner from './components/Spinner.vue'
+  import AlertMessage from './components/AlertMessage.vue'
 
-  const { obtenerClima } = useClima()
+  const { obtenerClima, clima , mostrarClima, cargando, error} = useClima()
 </script>
 
 <template>
@@ -11,9 +14,11 @@
       <WeatherForm
         @obtener-clima="obtenerClima"
       />
+      <Spinner v-if="cargando"/>
+      <AlertMessage v-if="error">{{ error }}</AlertMessage>
+      <Clima 
+        v-if="mostrarClima"
+        :clima="clima"
+      />
     </div>
 </template>
-
-<style scoped>
-
-</style>
