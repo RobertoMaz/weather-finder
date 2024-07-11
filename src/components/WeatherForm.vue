@@ -56,7 +56,7 @@
                 v-model="busqueda.pais"    
             >
                 <option value="">-- Seleccione un país --</option>
-                <option v-for="pais in paises" :value="pais.codigo">{{ pais.nombre }}</option>
+                <option v-for="pais in paises" :value="pais.codigo" class="country">{{ pais.nombre }}</option>
             </select>
         </div>
         <input 
@@ -65,3 +65,9 @@
         >
     </form>
 </template>
+
+<style scoped>
+    .country {
+        color: black;
+    }
+</style>
